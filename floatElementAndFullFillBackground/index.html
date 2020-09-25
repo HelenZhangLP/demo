@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>浮动子元素，背景完全填充</title>
+    <style media="screen">
+      .father {
+        padding: 5px;
+        background-color: #99f;
+        width: 300px;
+        height: 100px;
+      }
+
+      .son {
+        float: right;
+        width: 100px;
+        height: 100px;
+        background-color: #399;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="son">
+      </div>
+      <p>The aim of this task is to get you working with css `float` and `clear`</p>
+
+      <div class="clearfix"></div>
+    </div>
+  </body>
+</html>
