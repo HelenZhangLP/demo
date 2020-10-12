@@ -4,3 +4,4 @@
 
 # demo-float element and full fill father background
 > 浮动的应用，要求完全填充父元素背景。亮点——清除浮动要新增 clearfix div
+[image](./resource/floatElementAndFullFillBackground/1.jpg)
