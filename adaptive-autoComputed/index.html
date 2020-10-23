@@ -6,8 +6,33 @@
     <!-- viewport meta tags using 'width=device-width', cause the page scale down to fit content that overflows the viewport bounds, you can override this behavior by adding 'shrink-to-fit=no' to your meta tag as shown below. the added value will prevent the page from scaling to fit the viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fix=no" />
     <title>动态修改 html 的 font-size</title>
+    <style type='text/css'>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 300px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background-color: #933;
+
+        color: #fff
+      }
+    </style>
   </head>
   <body>
-    
+    <div>
+      动态修改 html's font-size，做到 web 适配
+    </div>
+    <script type="text/javascript">
+      // document.documentElement 获取根元素 兼容性
+      let deviceWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      let htmlDom = document.getElementsByTagName('html')[0] // document.documentElement
+
+      // 修改 html 的 font-size
+      htmlDom.style.fontSize = deviceWidth / 20 + 'px';
+    </script>
   </body>
 </html>
