@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="Zh-cn">
+    <!-- viewport 手机浏览器页面虚拟窗口 -->
+    <!-- content
+      width
+      initial-scale 页面第一次 load 的缩放比例为 1.0 或 0.5
+      user-scalable 是否允许用户缩放
+      maximum-scale 允许用户缩放时的最大缩放比例
+      minimum-scale 允许用户绽放时的最小绽放比例
+      shrink-to-fit for ios9
+      Viewport meta tags using "width=device-width" cause the page to scale down to fit content that overflows the viewport bounds. You can override this behavior by adding "shrink-to-fit=no" to your meta tag as shown below. The added value will prevent the page from scaling to fit the viewport.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>percentage layout</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100%;
+        height: 50px;
+        background-color: #f33;
+      }
+
+      .box > .inner-box {
+        width: 25%;
+        height: 100%;
+        background-color: #33f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inner-box"></div>
+    </div>
+  </body>
+</html>
