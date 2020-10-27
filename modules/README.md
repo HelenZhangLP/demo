@@ -20,4 +20,7 @@ console.log(a, b);
 ## `SyntaxError: Cannot use import statement outside a module`
 > 不支持 import，需要 babel 转义
 
+1.  babel 在 html 中
+2.  babel 依赖包
+
 [参考解决](https://wangdoc.com/es6/intro.html)
