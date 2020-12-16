@@ -1,13 +1,13 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "> 了解 node，使用 node api 获取计算机信息",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start:node": "node ./src/app.js",
     "start": "nodemon ./src/app.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
