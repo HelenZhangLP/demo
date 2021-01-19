@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>事件流</title>
+    <style>
+      #demo {
+        width: 30px;
+        height: 30px;
+        background-color: #933;
+        position: absolute;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script type="text/javascript">
+      window.onload = function() {
+        var div = document.getElementById('demo');
+        document.onmousemove = function(e) {
+          var evt = e || event; // 获取事件对象兼容处理
+          // document.documentElement.scrollTop 滚动条距离屏幕顶端的距离
+          var scrollTop = document.documentElement.scrollTop
+          // document.documentElement.scrollLeft 滚动条距屏幕左侧的距离
+          var scrollLeft = document.documentElement.scrollLeft
+
+          // event.clientY 获取鼠标事件发生时相对于可视窗口左上角的垂直距离
+          var marginTop = scrollTop + evt.clientY + 'px'
+          // event.clientX 获取鼠标事件发生时相对于可视窗口左上角的水平距离
+          var marginLeft = scrollLeft + evt.clientX + 'px'
+
+          div.style.top = marginTop
+          div.style.left = marginLeft
+        }
+      }
+    </script>
+  </body>
+</html>

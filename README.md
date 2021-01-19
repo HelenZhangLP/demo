@@ -20,3 +20,9 @@
 > position 属性值为 absolute 或 fixed 会创建块级上下文（Block Formatting Context BFC），可以使用 margin 进行位移
 
 ![img](https://helenzhanglp.github.io//images/demo/positionAbsoluteFixedBlock/position-absolute-block-2.jpg)
+
+# demo-event 事件对象应用，DOM 元素跟随鼠标移动
+> event.clientX 事件对象中，clientX 是鼠标事件发生时相对于视口左上角的水平距离
+  event.clientY 事件对象中，clientY 是鼠标事件发生时相对于视口左上角的垂直距离
+  document.documentElement.scrollTop 滚动条距离顶端的距离
+  document.documentElement.scrollLeft 滚动条距离左侧的距离
