@@ -1,0 +1,118 @@
+@width: 260px;
+
+.btn {
+  width: 100px;
+  height: 48px;
+  line-height: 48px;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+
+  &-info {
+    background-color: #6495ED;
+    border-color: #87CEEB;
+    color: #fff;
+  }
+}
+
+.el-select {
+  display: inline-block;
+  &::after {
+    content: "";
+    border: solid 1px #666;
+    border-left: none;
+    border-bottom: none;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    transform: rotate(-45deg);
+    transition: .2s transform;
+
+    margin-left: -15px;
+    position: relative;
+    top: 1px;
+  }
+}
+
+.el-selected::after {
+  transform: rotate(135deg);
+  top: -2px;
+}
+
+input,
+textarea {
+  width: @width;
+}
+
+.el-options {
+  display: none;
+  background-color: #fff;
+  border: solid 1px #adadad;
+  width: @width;
+  min-height: 28px;
+  border-radius: 5px;
+
+  position: absolute;
+  top: -5px;
+  left: 112px;
+  margin-top: 100px;
+
+  &-item {
+    width: 100%;
+    padding: 6px 0 6px 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    color: #8a8a8a;
+    font-size: 14px;
+
+    &:nth-child(2n) {
+      background-color: #efefef;
+    }
+
+    &:first-of-type {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  &::after {
+    content: "";
+    border: solid 5px #fff;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    top:-5px;
+    left: 12px;
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    content: "";
+    border: solid 6px #adadad;
+    position: absolute;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(-45deg);
+    top:-6px;
+    left: 11px;
+  }
+}
+
+.el-label {
+  display: inline-block;
+  text-align: right;
+  color: #606666;
+  font-size: 14px;
+  padding-right: 12px;
+  width: 80px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}

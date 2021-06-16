@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>draw palette with canvas</title>
+    <!-- compatible IE -->
+    <!-- {if IE}>
+      <script src="excanvas.js" charset="utf-8"></script>
+    <!{end if} -->
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300" style="border: 1px dashed #399">
+      请升级浏览器
+    </canvas>
+    <canvas id="canvas1" width="300" height="300" style="border: dashed 2px #f99"></canvas>
+    <script type="text/javascript">
+      function $$(id) {
+        return document.getElementById(id)
+      }
+
+      function DrawRectPalette() {
+        var canvas = $$('canvas')
+        var ctx = canvas.getContext('2d')
+
+        for(var i=0; i<6; i++) {
+          for (var j=0; j<6; j++) {
+            ctx.fillStyle = "rgb(" + Math.floor(255 - 42.5*i) + "," + Math.floor(255 - 42.5 * j) + ",0)"
+            ctx.fillRect(j*50,i*50,50,50)
+          }
+        }
+      }
+
+      function GradientPalette() {
+        var canvas = $$('canvas1')
+        var ctx = canvas.getContext('2d')
+        var r = 255, g=0, b=0
+        for (var i=0; i<300;) {
+          i +=10;
+          if (i>=0 && i<100) {
+            g +=10
+            b +=20
+            r -=10
+          }
+          if (i>=100 && i<200) {
+            g +=10
+            b +=10
+          }
+          if (i>200 && i<300) {
+            r -=10
+            g += 5
+            b +=5
+          }
+          ctx.fillStyle = "rgb("+ r + "," + g + "," + b+ ")"
+          ctx.fillRect(1*i, 0, 10, 300)
+        }
+      }
+
+      window.onload = function() {
+        DrawRectPalette()
+        GradientPalette()
+      }
+    </script>
+  </body>
+</html>

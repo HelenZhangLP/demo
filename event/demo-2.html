@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="zh-cn" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fix=no" />
+    <!--
+      viewport 手机浏览器的虚拟窗口
+      viewport meta tags using "width=device-width"
+      cause the page scale down to fit content that overflows the viewport bounds
+      you can override this behavior by adding 'shrink-to-fit=no' to your meta tag.
+      as shown below
+      the added value will prevent the page from scaling to fit the viewport
+    -->
+    <title>闰年</title>
+  </head>
+  <body>
+    <p>
+      闰年，能被 4 整除但不能被100整除，可以被 400 整除的年份
+    </p>
+    <input type="text" id="val">
+    <button onclick="check()">check</button>
+
+    <script type="text/javascript">
+      function check() {
+        let value = document.getElementById('val').value
+        console.log(value)
+        if(Number(value)%4 == 0 && Number(value)%100 !== 0) {
+          alert('闰年')
+        } else if(Number(value)%400 == 0) {
+          alert('闰年')
+        } else {
+          alert('平年')
+        }
+      }
+    </script>
+  </body>
+</html>

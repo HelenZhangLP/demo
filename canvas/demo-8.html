@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>use canvas to draw a five pointed star </title>
+    <!-- compatible IE -->
+    <!-- {if IE} >
+      <script src="excanvas.js" charset="utf-8"></script>
+    <!{end if} -->
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300" style="border: dashed 1px #933">
+      请升级浏览器
+    </canvas>
+    <script type="text/javascript">
+      function $$(id) {
+        return document.getElementById(id)
+      }
+
+      function DrawXAxis(ctx, canvasWidth, canvasHeight) {
+        ctx.beginPath()
+        ctx.moveTo(20, canvasHeight/2)
+        ctx.lineTo(canvasWidth-20, canvasHeight/2)
+        ctx.lineTo(canvasWidth-40, canvasHeight/2-20)
+        ctx.lineTo(canvasWidth-20, canvasHeight/2)
+        ctx.lineTo(canvasWidth-40, canvasHeight/2+20)
+        ctx.stroke()
+        ctx.closePath()
+      }
+
+      function DrawYAxis(ctx, canvasWidth, canvasHeight) {
+        ctx.beginPath()
+        ctx.moveTo(canvasWidth/2, canvasHeight-29)
+        ctx.lineTo(canvasWidth/2, 20)
+        ctx.lineTo(canvasWidth/2-20, 40)
+        ctx.lineTo(canvasWidth/2, 20)
+        ctx.lineTo(canvasWidth/2+20, 40)
+        ctx.stroke()
+      }
+
+      function DrawCoordinates(ctx) {
+        DrawXAxis(ctx, 300, 300)
+        DrawYAxis(ctx, 300, 300)
+      }
+
+      function DrawCircle(ctx, radius, centerCoordinateX, centerCoordinateY, color) {
+        var x,y
+        var radian = Math.PI/180
+        ctx.beginPath()
+        ctx.strokeStyle = color
+        for (var i = 0; i < 360; i++) {
+          x = Math.cos(radian*i)*radius + centerCoordinateX
+          y = Math.sin(radian*i)*radius + centerCoordinateY
+          ctx.lineTo(x,y)
+        }
+        ctx.stroke()
+        ctx.closePath()
+      }
+
+      function DrawFivePointedStar(ctx, radiusOuter, radiusInner, centerCoordinateX, centerCoordinateY, color) {
+        var x,y,x1,y1
+        ctx.beginPath()
+        ctx.fillStyle = color
+        for (var i=0; i<5; i++) {
+          x = Math.cos((18+i*72)*Math.PI/180)*radiusOuter + centerCoordinateX
+          y = Math.sin((18+i*72)*Math.PI/180)*radiusOuter + centerCoordinateY
+          x1 = Math.cos((54+i*72)*Math.PI/180)*radiusInner + centerCoordinateX
+          y1 = Math.sin((54+i*72)*Math.PI/180)*radiusInner + centerCoordinateY
+          ctx.lineTo(x,y)
+          ctx.lineTo(x1,y1)
+        }
+        ctx.fill()
+        ctx.closePath()
+      }
+
+      window.onload = function() {
+        var canvas = $$('canvas')
+        var ctx = canvas.getContext('2d')
+        // draw coordinates
+        DrawCoordinates(ctx)
+        DrawCircle(ctx, 100, 150, 150, 'brown')
+        DrawFivePointedStar(ctx, 100, 50, 150, 150, 'hotpink')
+      }
+    </script>
+  </body>
+</html>

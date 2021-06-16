@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>画坐标</title>
+    <!-- compatible IE -->
+    <!-- {if IE}>
+      <script src="excanvas.js" charset="utf-8"></script>
+    <!{end if} -->
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300" style="border: dashed 1px #3af;">
+      请升级浏览器
+    </canvas>
+
+    <script type="text/javascript">
+      function $$(id) {
+        return document.getElementById(id)
+      }
+
+      function DrawXAxis(ctx) {
+        ctx.beginPath()
+        ctx.moveTo(20,150)
+        ctx.lineTo(290,150)
+        ctx.lineTo(280,140)
+        ctx.moveTo(290,150)
+        ctx.lineTo(280,160)
+        ctx.stroke()
+        ctx.closePath()
+      }
+
+      function DrawYAxis(ctx) {
+        ctx.beginPath()
+        ctx.moveTo(150,290)
+        ctx.lineTo(150,10)
+        ctx.lineTo(140,20)
+        ctx.moveTo(150,10)
+        ctx.lineTo(160,20)
+        ctx.stroke()
+      }
+
+      function DrawCircle(ctx) {
+        var radius = 100
+        var centerCoordinateX = 150
+        var centerCoordianteY = 150
+        var x,y
+        var radian = Math.PI/180
+        ctx.beginPath()
+        ctx.strokeStyle = '#933'
+        for (var i=0; i < 360; i++) {
+          x = Math.cos(radian*i)*radius + centerCoordinateX
+          y = Math.sin(radian*i)*radius + centerCoordianteY
+          ctx.lineTo(x,y)
+        }
+        ctx.stroke()
+        ctx.closePath()
+      }
+
+      function DrawTrangle(ctx) {
+        var radius = 100
+        var centerCoordinateX = 150
+        var centerCoordinateY = 150
+        var radian = 2*Math.PI/3
+        var x,y
+        ctx.beginPath()
+        ctx.strokeStyle = '#339'
+        for (var i=0; i<3; i++) {
+          x = Math.cos(radian*i)*radius + centerCoordinateX
+          y = Math.sin(radian*i)*radius + centerCoordinateY
+          ctx.lineTo(x,y)
+        }
+        ctx.lineTo(250,150)
+        ctx.stroke()
+        ctx.closePath()
+      }
+      /**
+       * ctx canvas 画布
+       * radius 半径
+       * centerCoordinateX, centerCoordinateY x，y 坐标
+       * color 填充颜色
+       * n 几边形
+       */
+      function DrawPolygon(ctx, radius, centerCoordinateX, centerCoordinateY, color, n) {
+        var x,y;
+        var radian = 2*Math.PI/n
+        ctx.beginPath()
+        ctx.fillStyle = color
+        for (var i=0; i<n; i++) {
+          x = Math.cos(radian*i)*radius + centerCoordinateX
+          y = Math.sin(radian*i)*radius + centerCoordinateY
+          ctx.lineTo(x,y)
+        }
+        ctx.fill()
+        ctx.closePath()
+      }
+
+      window.onload = function() {
+        var canvas = $$('canvas')
+        var ctx = canvas.getContext('2d')
+        // Draw coordinates
+        DrawXAxis(ctx)
+        DrawYAxis(ctx);
+        // Draw a circle with a radius of 100
+        DrawCircle(ctx)
+        // Draw a polygon
+        DrawPolygon(ctx, 100, 150, 150, "rgba(0,122,122, 0.8)", 4)
+        DrawPolygon(ctx, 100, 150, 150, "rgba(122, 0, 122, 0.8)", 5)
+        DrawPolygon(ctx, 100, 150, 150, "rgba(122, 122, 0, 0.8)", 6)
+        // Draw a triangle
+        DrawTrangle(ctx)
+      }
+    </script>
+  </body>
+</html>

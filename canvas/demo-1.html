@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas</title>
+    <!-- IE 暂时只支持 IE9 以上版本，以下代码处理 IE7 和 IE8 的兼容性 -->
+    <!--{if IE}>
+      <script src="excanvas.js"></script>
+    <!{end if}-->
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      // TODO: 获取 Canvas 对象
+      var canvas = document.getElementById('canvas')
+      // TODO: 获取上下文环境 context
+      var ctx = canvas.getContext("2d")
+      ctx.moveTo(0,0) // 定义起点
+      ctx.lineTo(100,100) // 定义终点
+      ctx.stroke() // 连接两点，成线
+    </script>
+  </body>
+</html>

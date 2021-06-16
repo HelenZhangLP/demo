@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>事件冒泡 —— 分享到</title>
+    <style media="screen">
+      body,div,ul,li {
+        margin: 0;
+        padding: 0;
+      }
+      ul,li {
+        list-style: none;
+      }
+      #div1 {
+        width: 80px;
+        height: 150px;
+        border: solid 1px #000;
+
+        position: absolute;
+        top: 50%;
+        left: -82px;
+        margin-top: -75px;
+      }
+
+      #div2 {
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        margin-top: -35px;
+        width: 30px;
+        height: 70px;
+        background-color: #e99;
+
+        text-align: center;
+      }
+
+      li {
+        width: 48px;
+        height: 48px;
+        background-color: #3a9;
+        margin: 3px auto 0;
+
+        text-align: center;
+        line-height: 48px;
+      }
+      li:first-of-type {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="div1">
+      <ul>
+        <li>QQ</li>
+        <li>wechat</li>
+        <li>webo</li>
+      </ul>
+      <div id="div2">分享到</div>
+    </div>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var oDiv1 = document.getElementById('div1')
+        oDiv1.onmouseover = function() {
+          console.log(this)
+          this.style.left = '0px';
+        }
+        oDiv1.onmouseout = function() {
+          this.style.left = '-82px';
+        }
+      }
+    </script>
+  </body>
+</html>

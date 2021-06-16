@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>use Canvas to make character "z"</title>
+    <!-- {if IE}>
+      <script src="excanvas.js" charset="utf-8"></script>
+    <!{end if}-->
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      function getCanvas(id) {
+        return document.getElementById(id)
+      }
+
+      var canvas = getCanvas('canvas')
+
+      // TODO: 获取上下文环境
+      var ctx = canvas.getContext("2d")
+      ctx.moveTo(100,100)
+      ctx.lineTo(200,100)
+      ctx.lineTo(100,200)
+      ctx.lineTo(200,200)
+      ctx.stroke()
+    </script>
+  </body>
+</html>

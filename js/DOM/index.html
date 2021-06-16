@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>操作 dom</title>
+</head>
+<body>
+<input type="text" id="img-src">
+<button id="add">新增图片</button>
+<div id="images-wrap"></div>
+
+<div id="images-container">
+  <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3859417927,1640776349&fm=11&gp=0.jpg" alt="">
+  <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2526580938,627798856&fm=26&gp=0.jpg" alt="">
+  <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4262576165,1283841097&fm=11&gp=0.jpg" alt="">
+</div>
+
+<script type="text/javascript">
+  function getElement(id) {
+    return document.getElementById(id)
+  }
+
+  var inputDom = getElement('img-src')
+  var btnDom = getElement('add')
+  var imgWrap = getElement('images-wrap')
+  var imgContainer = getElement('images-container')
+
+  btnDom.onclick = function () {
+    var imgsrc = inputDom.value
+    var imgDom = document.createElement('img')
+
+    imgDom.src = imgsrc
+
+    removeImg(imgDom)
+
+    imgWrap.appendChild(imgDom)
+  }
+
+  imgContainer.onclick = function (e) {
+    // 使用 e.srcElement 和 e.target 向下捕获
+    var src = e.srcElement.currentSrc || e.target.currentSrc;
+    var imgDom = document.createElement('img')
+    imgDom.src = src
+
+    removeImg(imgDom)
+
+    imgWrap.appendChild(imgDom)
+  }
+
+  function removeImg(dom) {
+    dom.onclick = function () {
+      imgWrap.removeChild(this)
+    }
+  }
+</script>
+</body>
+</html>

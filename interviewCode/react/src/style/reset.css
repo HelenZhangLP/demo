@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+  color: #444000;
+}
+
+h1,h2,h3 {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+button {
+  letter-spacing: inherit;
+  color:inherit;
+  font-size: 18px;
+}
+
+input {
+  color: #666;
+  padding: 5px 10px;
+  border: solid 1px #adadad;
+  border-radius: 4px;
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus-visible {
+  border: solid 1px #6495ED;
+  outline: none;
+  box-shadow: none;
+}
+
+input[type="select"] {
+  color: #999;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+textarea {
+  border-radius: 5px;
+  border: solid 1px #adadad;
+  width: 160px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+textarea:focus-visible {
+  outline: none;
+  border: solid 1px #6495ed;
+}

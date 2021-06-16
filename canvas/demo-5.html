@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>use rect to make a rectangle</title>
+    <!-- compatible IE -->
+    <!-- {if IE}>
+      <script src="excanvas.js" charset="utf-8"></script>
+    <!{end if} -->
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      function $$(id) {
+        return document.getElementById(id)
+      }
+
+      const canvas = $$('canvas')
+      const ctx = canvas.getContext('2d')
+      ctx.strokeStyle = '#311'
+      ctx.rect(50,50,50,50)
+      ctx.stroke()
+
+      ctx.fillStyle = '#f77'
+      ctx.rect(100,100,50,50)
+      ctx.fill()
+
+      ctx.fillStyle = 'hotPink';
+      ctx.fillRect(150,150,50,50)
+      ctx.clearRect(160,160,25,25)
+    </script>
+  </body>
+</html>
