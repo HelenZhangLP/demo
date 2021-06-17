@@ -1,4 +1,8 @@
 
+## Base/immutableArray
+> 使用 Object.defineProperty 或 Object defineProperties 构造一个不可变数组
+> <u>注意执行过程中 this 的转换</u>
+
 # DOM
 ## index.html
 操作DOM，作图片处理

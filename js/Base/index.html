@@ -8,59 +8,20 @@
   <title>Document</title>
 </head>
 <body>
+  <script src="immutableArray.js"></script>
+  <script type="text/javascript" src="standObjectModule.js"></script>
   <script>
-    // 不可变数组
-    function ImmutableArray(...elems) {
-      let _this = this
-      elems.forEach(function (elem, idx) {
-        Object.defineProperty(_this, idx, {
-          value: elem,
-          enumerable: true
-        })
-      })
-
-      Object.defineProperty(this, 'length', {
-        value: elems.length
-      })
-
-      Object.preventExtensions(this)
-    }
-
-    function ImmutableArray_1(...elems) {
-      elems.forEach(function (elem, idx){
-        Object.defineProperty(this, idx, {
-          value: elem,
-          enumerable: true
-        })
-      },this)
-
-      Object.defineProperty(this, 'length', {
-        value: elems.length
-      })
-
-      Object.preventExtensions(this)
-    }
-
-    function ImmutableArray_2(...elems) {
-      elems.forEach((elem, idx) => {
-        Object.defineProperty(this, idx, {
-          value: elem,
-          enumerable: true
-        })
-      })
-
-      Object.defineProperty(this, 'length', {
-        value: elems.length
-      })
-
-      Object.preventExtensions(this)
-    }
-
    let i = new ImmutableArray_2([1,2,3,4])
+   i[0] = 11 // 修改无效
    console.log(i)
-    /**
-     * 匿名函数定义在 window 环境下，绑定全局。所以这里需要做 this 转换
-     */
+
+   let account = new Account('helen', 1000)
+   for(let i in account) {
+     console.log(i, account[i])
+   }
+
+   account.withdraw(200)
+   console.log(account.toString())
   </script>
 </body>
 </html>
