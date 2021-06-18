@@ -6,11 +6,7 @@
 </head>
 <body>
   <div id="images-wrap"></div>
-  <div id="images-container">
-    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3859417927,1640776349&fm=11&gp=0.jpg" alt="">
-    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2526580938,627798856&fm=26&gp=0.jpg" alt="">
-    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4262576165,1283841097&fm=11&gp=0.jpg" alt="">
-  </div>
+  <div id="images-container"></div>
 
   <h1>这里是要复制的节点<span color="#f33">深层复制</color></h1>
 
@@ -29,6 +25,21 @@
       var imgContainer = getElement('images-container')
       var imgWrap = getElement('images-wrap')
       var h1 = document.querySelector('h1')
+      var imgData = [
+        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3859417927,1640776349&fm=11&gp=0.jpg',
+        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2526580938,627798856&fm=26&gp=0.jpg',
+        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4262576165,1283841097&fm=11&gp=0.jpg'
+      ]
+
+      // 渲染大量 DOM document.createDocumentFragment 批量处理
+      var fragment = document.createDocumentFragment()
+      for(let i=0; i<imgData.length; i++) {
+        var img = document.createElement('img')
+        img.src = imgData[i]
+        fragment.appendChild(img)
+      }
+
+      imgContainer.appendChild(fragment)
 
       imgContainer.onclick = function (e) {
         // 使用 e.srcElement 和 e.target 向下捕获
