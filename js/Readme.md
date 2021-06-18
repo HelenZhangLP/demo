@@ -1,9 +1,13 @@
 
-## Base/immutableArray
+# Object
+JavaScript 模拟面向对象编程相关安全
+## Object/immutableArray
 > 使用 Object.defineProperty 或 Object defineProperties 构造一个不可变数组
 > <u>注意执行过程中 this 的转换</u>
 
 # DOM
+JavaScript 执行相关 DOM 操作
+
 ## index.html
 操作DOM，作图片处理
 

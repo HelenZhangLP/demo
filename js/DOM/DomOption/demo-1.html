@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>操作 dom - 1</title>
+</head>
+<body>
+<input type="text" id="img-src">
+<button id="add">新增图片</button>
+<div id="images-wrap"></div>
+
+<script src="js/index.js"></script>
+<script type="text/javascript">
+  window.onload = function () {
+    var inputDom = getElement('img-src')
+    var btnDom = getElement('add')
+    var imgWrap = getElement('images-wrap')
+
+
+    btnDom.onclick = function () {
+      var imgsrc = inputDom.value
+      var imgDom = document.createElement('img')
+
+      imgDom.src = imgsrc
+
+      removeImg(imgDom)
+
+      imgWrap.appendChild(imgDom)
+    }
+  }
+
+  console.log(window)
+</script>
+</body>
+</html>

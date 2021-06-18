@@ -23,7 +23,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/demo-1.html'
     })
   ]
 }
