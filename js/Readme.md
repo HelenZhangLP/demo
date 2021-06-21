@@ -1,4 +1,6 @@
 
+# Array 有关数组 api 的几个扩展实例
+
 # Object
 JavaScript 模拟面向对象编程相关安全
 ## Object/immutableArray

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Array 的扩展实例</title>
+</head>
+<body>
+<script>
+  /**
+   * push + pop 模拟堆栈 stack
+   */
+  class Stack {
+    empty() {
+      return this.length === 0
+    }
+    push(...items) {
+      return Array.prototype.push.call(this, ...items)
+    }
+    pop() {
+      return Array.prototype.pop.call(this)
+    }
+  }
+
+  /**
+   * 实现附加数组方法
+   */
+  function appendArray(arr) {
+    Object.defineProperty(arr, 'append', {
+      value: function (...items) {
+        return Array.prototype.push.apply(this, items)
+      }
+    })
+  }
+  window.onload = function () {
+    let stack = new Stack()
+    stack.push(2,3,4,5)
+    console.log(stack) // Stack {0: 2, 1: 3, 2: 4, 3: 5, length: 4}
+    stack.pop()
+    console.log(stack) // Stack {0: 2, 1: 3, 2: 4, length: 3}
+
+    // append array
+    let arr = [0,0,0]
+    appendArray(arr)
+    console.log(arr.append(1,2,2)) // 6
+    console.log(arr)
+  }
+</script>
+</body>
+</html>
