@@ -6,9 +6,15 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Array 的扩展实例</title>
+  <script src="WeakMap.js"></script>
 </head>
 <body>
 <script>
+  let account = new Account('hel', 3000)
+  console.log('name', account.name)
+  console.log('balance', account.balance)
+  account.withdraw(500)
+  console.log('balance', account.balance)
   /**
    * push + pop 模拟堆栈 stack
    */
@@ -34,6 +40,18 @@
       }
     })
   }
+
+  /**
+   * Queue
+   */
+  class Queue {
+    offer(...elems) {
+      return Array.prototype.unshift.apply(this,elems)
+    }
+    poll() {
+      return Array.prototype.shift.call(this)
+    }
+  }
   window.onload = function () {
     let stack = new Stack()
     stack.push(2,3,4,5)
@@ -46,6 +64,14 @@
     appendArray(arr)
     console.log(arr.append(1,2,2)) // 6
     console.log(arr)
+
+    // Queue
+    let queue = new Queue()
+
+    console.log(queue.offer(1,2,3,4))
+    console.log(queue)
+    console.log(queue.poll())
+    console.log(queue)
   }
 </script>
 </body>
