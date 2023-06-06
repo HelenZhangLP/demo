@@ -76,10 +76,11 @@ url --> 网络 --> dns解析 --> 目标服务器
     */
  }
 ```
-
 ## DEMO8 错误级别中间件
 ## DEMO9 中间件 express.json 的应用
 ## DEMO10 中间件 express.urlencoded 的应用
+## DEMO11 第三方中间件 body-parser 使用
+> express@4.16.2 之前经常使用，express.urlencoded 是基于 body-parser 封装的
 
 ## mysql
 结构化数据库的一种，提供数据存放服务
