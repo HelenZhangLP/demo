@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <title>跨域请求</title>
+    <style>
+        button {
+            display: flex;
+            border: solid 1px #ddd;
+            color: #666;
+            border-radius: 10px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="jsonp">jsonp get 请求</button><button></button><button></button>
+
+    <script>
+        $('#jsonp').on('click', function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1:9000/api/jsonp',
+                dataType: 'jsonp',
+                success: function(res) {
+                    console.log(res, 'jsonp')
+                }
+            })
+        })
+    </script>
+</body>
+</html>
