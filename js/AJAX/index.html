@@ -4,11 +4,11 @@
         <button id="btn">ajax 请求</button>
         <script>
             let btn = document.getElementById('btn')
-            function ajax(successCallback, failCallback) {
+            function ajax(url, successCallback, failCallback) {
                 // 1. 创建 ajax - xhr 对象
                 let xhr = new XMLHttpRequest()
                 // 2. 初始化 ajax
-                xhr.open('GET', 'https://api.ximalaya.com/categories/list')
+                xhr.open('GET', url)
                 // 3. 发起 ajax 请求
                 xhr.send()
                 // 4. 处理响应结果
@@ -29,12 +29,16 @@
                     }
                 }
             }
-            btn.addEventListener('click', function(){
-                // Promise 封装
-                let promise = new Promise((resolve, reject) =>{
-                    ajax(resolve, reject)
-                })
 
+            // Promise 封装 AJAX
+            function pAjax(url) {
+                let promise = new Promise((resolve, reject) =>{
+                    ajax(url, resolve, reject)
+                })
+            }
+            
+            btn.addEventListener('click', function(){
+                let promise = pAjax('https://api.ximalaya.com/categories/list')
                 promise.then( data =>{
                     console.log(data)
                 },err => {

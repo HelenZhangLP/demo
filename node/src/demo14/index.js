@@ -26,22 +26,29 @@ const path = require('path')
  * @param {*} file 
  * @returns 
  */
-function pReadFile(file) {
-    return new Promise((resolve, reject) => {
-        /**
-         * readFile 参数
-         * file
-         * (err, data) => {} 注意哦
-         */
-        require('fs').readFile(file, (err, data) => {
-            if(err) reject(err)
-            resolve(data)
-        })
-    })
-}
+// function pReadFile(file) {
+//     return new Promise((resolve, reject) => {
+//         /**
+//          * readFile 参数
+//          * file
+//          * (err, data) => {} 注意哦
+//          */
+//         require('fs').readFile(file, (err, data) => {
+//             if(err) reject(err)
+//             resolve(data)
+//         })
+//     })
+// }
 
-pReadFile('context.txt')
-.then(
-    v=>{console.log(v.toString())}, 
-    err => {console.error(err)}
-)
+// pReadFile('context.txt')
+// .then(
+//     v=>{console.log(v.toString())}, 
+//     err => {console.error(err)}
+// )
+
+/**
+ * D - util.promisify
+ */
+const util = require('util')
+let uReadFile = util.promisify(fs.readFile)
+uReadFile('./context.txt').then(v => console.log(v.toString()), e => console.log(e))
