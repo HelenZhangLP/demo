@@ -29,3 +29,6 @@
   event.clientY 事件对象中，clientY 是鼠标事件发生时相对于视口左上角的垂直距离
   document.documentElement.scrollTop 滚动条距离顶端的距离
   document.documentElement.scrollLeft 滚动条距离左侧的距离
+
+# demo-js-ajax
+> Promise 包裹 XMlHttpRequest 请求
