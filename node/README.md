@@ -83,6 +83,7 @@ url --> 网络 --> dns解析 --> 目标服务器
 > express@4.16.2 之前经常使用，express.urlencoded 是基于 body-parser 封装的
 ## DEMO12 自定义中间件
 ## DEMO13 JSONP 请求解决跨域
+## DEMO14 Promise 封装读取文件异步操作
 
 ## mysql
 结构化数据库的一种，提供数据存放服务

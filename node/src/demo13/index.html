@@ -17,7 +17,8 @@
     </style>
 </head>
 <body>
-    <button id="jsonp">jsonp get 请求</button><button></button><button></button>
+    <button id="jsonp">jsonp get 请求</button>
+    <button id="ximalaya">more</button><button></button>
 
     <script>
         $('#jsonp').on('click', function() {
@@ -25,6 +26,16 @@
                 type: 'GET',
                 url: 'http://127.0.0.1:9000/api/jsonp',
                 dataType: 'jsonp',
+                success: function(res) {
+                    console.log(res, 'jsonp')
+                }
+            })
+        })
+
+        $('#ximalaya').on('click', function() {
+            $.ajax({
+                type: 'GET',
+                url: 'https://api.ximalaya.com/categories/list?app_key=e5c0f4429579015bac4ace6051bfa8b7&client_os_type=3&device_id=1111&device_id_type=UUID&nonce=1111&timestamp=1686207022000&server_api_version=1.0.0&sig=e16cc83f09ea018a6b7a95b7a016c971',
                 success: function(res) {
                     console.log(res, 'jsonp')
                 }
