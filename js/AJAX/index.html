@@ -1,0 +1,46 @@
+<html>
+    <head></head>
+    <body>
+        <button id="btn">ajax 请求</button>
+        <script>
+            let btn = document.getElementById('btn')
+            function ajax(successCallback, failCallback) {
+                // 1. 创建 ajax - xhr 对象
+                let xhr = new XMLHttpRequest()
+                // 2. 初始化 ajax
+                xhr.open('GET', 'https://api.ximalaya.com/categories/list')
+                // 3. 发起 ajax 请求
+                xhr.send()
+                // 4. 处理响应结果
+                // readyState 请求代码当前所处的状态；0 UNSENT，代理创建，但没有通过 open() 初始化请求
+                // readyState 请求代码当前所处的状态；1 OPENED，代理已初始化，但没有通过 send() 发送请求
+                // console.log(xhr.readyState, xhr)
+                xhr.onreadystatechange = function() {
+                    // readyState 请求代码当前所处的状态；2 HEADERS_RECEIVED 已获取头部状态
+                    // readyState 请求代码当前所处的状态；3 LOADING 响应加载中。。。
+                    // readyState 请求代码当前所处的状态；4 DONE 响应下载完成
+                    console.log(xhr.readyState, xhr)
+                    if (xhr.readyState === 4) { // 响应下载完成后进行处理
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            successCallback(xhr.response)
+                        } else {
+                            failCallback(`${xhr.status} && ${xhr.responseText}`)
+                        }
+                    }
+                }
+            }
+            btn.addEventListener('click', function(){
+                // Promise 封装
+                let promise = new Promise((resolve, reject) =>{
+                    ajax(resolve, reject)
+                })
+
+                promise.then( data =>{
+                    console.log(data)
+                },err => {
+                    console.error(err)
+                })
+            })
+        </script>
+    </body>
+</html>
