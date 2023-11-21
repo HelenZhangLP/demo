@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写 JSONP</title>
+    <style>
+        div {
+            margin-top: 10px;
+            border: solid 1px #ccc;
+            border-radius: 5px;
+            width: 190px;
+            height: 50px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="username">姓名：</label><input type="text" id="username" autocomplete="additional-name">
+    <div></div>
+
+    <script>
+        var input = document.querySelector('input')
+        var div = document.querySelector('div')
+
+        function handle(data) {
+            input.style.border = '1px solid #f33'
+            div.innerHTML = data.msg
+        }
+
+        // jsonp 封装
+        function JSONP() {
+            var script = document.createElement('script')
+            script.src = 'http://localhost:8000/customJsonp'
+            document.body.appendChild(script)
+        }
+
+        input.onblur = function () {
+            // 发请求
+            JSONP()
+        }
+    </script>
+</body>
+
+</html>
