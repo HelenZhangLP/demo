@@ -1,3 +1,58 @@
+// class Promise {
+//     constructor(executor) {
+//         // 实例属性
+//         this.PromiseStatus = 'pending';
+//         this.PromiseResult = null;
+//         this.callbacks = []
+
+//         /**
+//          * resolve, reject
+//          * 修改状态
+//          * 修改结果值
+//          */
+//         const resolve = (data) => {
+//             if (this.PromiseStatus !== 'pending') return; // Promise 对象状态只能修改一次
+//             this.PromiseStatus = 'fulfilled';
+//             this.PromiseResult = data;
+//             this.callbacks.forEach(item => {
+//                 item.onResolve(data)
+//             })
+//         }
+//         const reject = (err) => {
+//             if (this.PromiseStatus !== 'pending') return; // Promise 对象状态只能修改一次
+//             this.PromiseStatus = 'rejected';
+//             this.PromiseResult = err;
+//             this.callbacks.forEach(item => {
+//                 item.onReject(err)
+//             })
+//         }
+
+//         // 抛出异常时，状态处理
+//         try {
+//             // 同步调用执行器函数
+//             executor(resolve, reject)
+//         } catch (e) {
+//             // 处理捕获异常，修改状态与结果值
+//             reject(e)
+//         }
+//     }
+
+//     // then 方法封装
+//     then(onResolve, onReject) {
+//         // 处理参数异常
+//         if (typeof onResolve !== 'function') {
+//             onResolve = value => value
+//         }
+//         // 处理参数异常，穿透 then 直接处理 catch 方法
+//         if (typeof onReject !== 'function') {
+//             onReject = err => { throw err }
+//         }
+
+//         return new Promise((resolve, reject) => { 
+
+//          })
+//     }
+// }
 /**
  * 
  * @param {*} executor 执行器函数
@@ -83,12 +138,21 @@ Promise.prototype.then = function (onResolve, onReject) {
         if (this.PromiseStatus === 'pending') {
             this.callbacks.push({
                 onResolve: function () {
-                    callback(onResolve)
+                    // callback(onResolve)
+                    console.log(111)
                 },
                 onReject: function () {
-                    callback(onReject)
+                    // callback(onReject)
                 }
             })
+            // this.callbacks.push({
+            //     onResolve: function () {
+            //         callback(onResolve)
+            //     },
+            //     onReject: function () {
+            //         callback(onReject)
+            //     }
+            // })
         }
         if (this.PromiseStatus === 'fulfilled') {
             callback(onResolve)
@@ -119,6 +183,7 @@ Promise.resolve = value => {
     })
 }
 
+// 静态方法：Promise.reject
 Promise.reject = err => {
     return new Promise((resolve, reject) => {
         reject(err)
